@@ -2,117 +2,204 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>특별한 빼빼로 선물</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>특별한 빼빼로 선물</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(135deg, #ffe3e8, #fff1d9);
-      font-family: "Malgun Gothic", sans-serif;
-    }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ffe3e8, #fff1d9);
+            font-family: "Malgun Gothic", sans-serif;
+            padding: 20px;
+        }
 
-    .container {
-      width: 90%;
-      max-width: 430px;
-      padding: 40px 25px;
-      text-align: center;
-      background: white;
-      border-radius: 25px;
-      box-shadow: 0 10px 35px #00000015;
-    }
+        .container {
+            width: 100%;
+            max-width: 430px;
+            padding: 40px 25px;
+            text-align: center;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 10px 35px #00000015;
+        }
 
-    .heart {
-      font-size: 55px;
-      margin-bottom: 10px;
-    }
+        .heart {
+            font-size: 55px;
+            margin-bottom: 10px;
+        }
 
-    h1 {
-      color: #d93654;
-      font-size: 28px;
-    }
+        h1 {
+            color: #d93654;
+            font-size: 28px;
+        }
 
-    .message {
-      color: #777;
-      line-height: 1.8;
-      margin: 20px 0;
-    }
+        .message {
+            color: #777;
+            line-height: 1.8;
+            margin: 20px 0;
+        }
 
-    .gift {
-      margin: 30px auto;
-      font-size: 90px;
-      animation: bounce 1.5s infinite;
-    }
+        .gift {
+            margin: 30px auto;
+            font-size: 90px;
+            animation: bounce 1.5s infinite;
+        }
 
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
-    }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
 
-    button {
-      width: 100%;
-      padding: 17px;
-      border: none;
-      border-radius: 15px;
-      background: #e83e5b;
-      color: white;
-      font-size: 19px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.2s;
-    }
+            50% {
+                transform: translateY(-12px);
+            }
+        }
 
-    button:hover {
-      background: #c92746;
-      transform: scale(1.03);
-    }
+        button {
+            width: 100%;
+            padding: 17px;
+            border: none;
+            border-radius: 15px;
+            background: #e83e5b;
+            color: white;
+            font-size: 19px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
 
-    .footer {
-      margin-top: 25px;
-      color: #aaa;
-      font-size: 12px;
-    }
-  </style>
+        button:hover {
+            background: #c92746;
+            transform: scale(1.03);
+        }
+
+        button:active {
+            transform: scale(0.97);
+        }
+
+        .video-area {
+            display: none;
+            margin-top: 25px;
+            animation: fadeIn 0.8s ease;
+        }
+
+        video {
+            width: 100%;
+            border-radius: 15px;
+            background: black;
+        }
+
+        .video-message {
+            color: #d93654;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .footer {
+            margin-top: 25px;
+            color: #aaa;
+            font-size: 12px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <div class="container">
-    <div class="heart">💝</div>
 
-    <h1>Happy Pepero Day!</h1>
+    <div class="container">
 
-    <p class="message">
-      당신을 위해 특별히 준비한 선물!<br>
-      작은 선물이지만 마음만은 가득 담았습니다.
-    </p>
+        <div class="heart">💝</div>
 
-    <div class="gift">🎁</div>
+        <h1>Happy Pepero Day!</h1>
 
-    <p><strong>두근두근... 선물을 확인해 보세요!</strong></p>
+        <p class="message">
+            당신을 위해 특별히 준비한 선물!<br>
+            작은 선물이지만 마음만은 가득 담았습니다.
+        </p>
 
-    <button onclick="receiveGift()">
-      선물 받기
-    </button>
+        <div class="gift" id="gift">
+            🎁
+        </div>
 
-    <div class="footer">
-      © 2026 Special Gift
+        <p id="giftText">
+            <strong>두근두근... 선물을 확인해 보세요!</strong>
+        </p>
+
+        <button id="receiveButton" onclick="receiveGift()">
+            선물 받기
+        </button>
+
+        <div class="video-area" id="videoArea">
+
+            <p class="video-message">
+                당신을 위한 특별한 선물입니다!
+            </p>
+
+            <video
+                id="rickVideo"
+                controls
+                playsinline
+                preload="metadata"
+            >
+                <source src="rickroll.mp4" type="video/mp4">
+                브라우저에서 영상을 재생할 수 없습니다.
+            </video>
+
+        </div>
+
+        <div class="footer">
+            © 2026 Special Gift
+        </div>
+
     </div>
-  </div>
 
-  <script>
-    function receiveGift() {
-      window.location.href =
-        "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
-    }
-  </script>
+    <script>
+        function receiveGift() {
+
+            const gift = document.getElementById("gift");
+            const giftText = document.getElementById("giftText");
+            const button = document.getElementById("receiveButton");
+            const videoArea = document.getElementById("videoArea");
+            const video = document.getElementById("rickVideo");
+
+            // 선물 상자 숨기기
+            gift.style.display = "none";
+
+            // 안내 문구 변경
+            giftText.innerHTML = "<strong>선물을 공개합니다!</strong>";
+
+            // 버튼 숨기기
+            button.style.display = "none";
+
+            // 영상 영역 표시
+            videoArea.style.display = "block";
+
+            // 영상 재생
+            video.play().catch(error => {
+                console.log("자동 재생이 제한되었습니다.", error);
+            });
+        }
+    </script>
+
 </body>
 </html>
