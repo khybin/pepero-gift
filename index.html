@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>특별한 빼빼로 선물</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffe3e8, #fff1d9);
+      font-family: "Malgun Gothic", sans-serif;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 430px;
+      padding: 40px 25px;
+      text-align: center;
+      background: white;
+      border-radius: 25px;
+      box-shadow: 0 10px 35px #00000015;
+    }
+
+    .heart {
+      font-size: 55px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      color: #d93654;
+      font-size: 28px;
+    }
+
+    .message {
+      color: #777;
+      line-height: 1.8;
+      margin: 20px 0;
+    }
+
+    .gift {
+      margin: 30px auto;
+      font-size: 90px;
+      animation: bounce 1.5s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    button {
+      width: 100%;
+      padding: 17px;
+      border: none;
+      border-radius: 15px;
+      background: #e83e5b;
+      color: white;
+      font-size: 19px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #c92746;
+      transform: scale(1.03);
+    }
+
+    .footer {
+      margin-top: 25px;
+      color: #aaa;
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="heart">💝</div>
+
+    <h1>Happy Pepero Day!</h1>
+
+    <p class="message">
+      당신을 위해 특별히 준비한 선물!<br>
+      작은 선물이지만 마음만은 가득 담았습니다.
+    </p>
+
+    <div class="gift">🎁</div>
+
+    <p><strong>두근두근... 선물을 확인해 보세요!</strong></p>
+
+    <button onclick="receiveGift()">
+      선물 받기
+    </button>
+
+    <div class="footer">
+      © 2026 Special Gift
+    </div>
+  </div>
+
+  <script>
+    function receiveGift() {
+      window.location.href =
+        "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+    }
+  </script>
+</body>
+</html>
